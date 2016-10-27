@@ -50,8 +50,8 @@ public abstract class JediAppLoader {
                JediApp app = new JediApp();
                app.setJar(jar);
                app.setMainClass(clazz);
-               jedi.app.annotations.JediApp jediAppAnnotation =
-                  (jedi.app.annotations.JediApp) clazz.getAnnotation(jedi.app.annotations.JediApp.class);
+               jedi.app.annotation.JediApp jediAppAnnotation =
+                  (jedi.app.annotation.JediApp) clazz.getAnnotation(jedi.app.annotation.JediApp.class);
                if (jediAppAnnotation != null) {
                   String jarEntry = jediAppAnnotation.name() == null ? "" : jediAppAnnotation.name().trim();
                   String verboseName = jediAppAnnotation.verbose_name() == null ? "" : jediAppAnnotation.verbose_name().trim();
