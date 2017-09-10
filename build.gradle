@@ -26,5 +26,6 @@ dependencies {
     compile 'org.tinylog:log4j-facade:1.1'
     compile 'org.tinylog:slf4j-binding:1.1'
     compile 'org.projectlombok:lombok:1.16.8'
-    testCompile 'junit:junit:4.+'
+//    testCompile 'junit:junit:4.+'
+    testCompile 'junit:junit:4.12'
 }
