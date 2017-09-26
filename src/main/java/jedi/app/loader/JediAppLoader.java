@@ -12,11 +12,16 @@ import java.util.jar.JarInputStream;
 import java.util.jar.Manifest;
 import jedi.app.JediApp;
 
+/**
+ * @author thiago-amm
+ * @version v1.0.0
+ * @since v1.0.0
+ */
 @SuppressWarnings("rawtypes")
 public abstract class JediAppLoader {
    
    private static String dir;
-   private static Map apps = new HashMap();
+   private static Map apps = new HashMap<>();
    
    public static String getDir() {
       return dir;
@@ -50,18 +55,21 @@ public abstract class JediAppLoader {
                JediApp app = new JediApp();
                app.setJar(jar);
                app.setMainClass(clazz);
-               jedi.app.annotation.JediApp jediAppAnnotation =
-                  (jedi.app.annotation.JediApp) clazz.getAnnotation(jedi.app.annotation.JediApp.class);
+               jedi.app.annotation.JediApp jediAppAnnotation = (jedi.app.annotation.JediApp) clazz
+                  .getAnnotation(jedi.app.annotation.JediApp.class);
                if (jediAppAnnotation != null) {
                   String jarEntry = jediAppAnnotation.name() == null ? "" : jediAppAnnotation.name().trim();
-                  String verboseName = jediAppAnnotation.verbose_name() == null ? "" : jediAppAnnotation.verbose_name().trim();
-                  String verboseNamePlural =
-                     jediAppAnnotation.verbose_name_plural() == null ? "" : jediAppAnnotation.verbose_name_plural().trim();
+                  String verboseName = jediAppAnnotation.verbose_name() == null ? 
+                     "" : jediAppAnnotation.verbose_name().trim();
+                  String verboseNamePlural = jediAppAnnotation.verbose_name_plural() == null
+                     ? "" : jediAppAnnotation.verbose_name_plural().trim();
                   String label = jediAppAnnotation.label() == null ? "" : jediAppAnnotation.label().trim();
                   String dbTable = jediAppAnnotation.db_table() == null ? "" : jediAppAnnotation.db_table().trim();
-                  String[] authors = jediAppAnnotation.authors() == null ? new String[] { "" } : jediAppAnnotation.authors();
+                  String[] authors = jediAppAnnotation.authors() == null ? 
+                     new String[] { "" } : jediAppAnnotation.authors();
                   String version = jediAppAnnotation.version() == null ? "" : jediAppAnnotation.version().trim();
-                  String description = jediAppAnnotation.description() == null ? "" : jediAppAnnotation.description().trim();
+                  String description = jediAppAnnotation.description() == null ? 
+                     "" : jediAppAnnotation.description().trim();
                   String date = jediAppAnnotation.date() == null ? "" : jediAppAnnotation.date().trim();
                   app.setName(jarEntry);
                   app.setVerboseName(verboseName);
@@ -82,7 +90,9 @@ public abstract class JediAppLoader {
                      apps.put(appName, app);
                      break;
                   }
-                  if (jarEntry1.getName().replace(File.separator, ".").startsWith(appName) && jarEntry1.getName().endsWith(".class") &&
+                  if (
+                     jarEntry1.getName().replace(File.separator, ".").startsWith(appName) && 
+                     jarEntry1.getName().endsWith(".class") &&
                      jarEntry1.getName().contains("models")) {
                      className = appName.replaceAll("\\.", "/") + "/models/";
                      if (jarEntry1.getName().startsWith(className)) {
@@ -143,7 +153,7 @@ public abstract class JediAppLoader {
                      }
                   }
                } else {
-               
+                  
                }
             }
          }

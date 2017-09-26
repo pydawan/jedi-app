@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.jar.JarInputStream;
 
 /**
- * @author thiago
+ * @author thiago-amm
  * @version v1.0.0
  * @since v1.0.0
  */
@@ -28,7 +28,7 @@ public class JediApp {
    
    @SuppressWarnings("unchecked")
    public JediApp() {
-      this.classes.put("models", new ArrayList());
+      this.classes.put("models", new ArrayList<>());
    }
    
    public String getName() {

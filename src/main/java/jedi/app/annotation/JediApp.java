@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @author thiago
+ * @author thiago-amm
  * @version v1.0.0
  * @since v1.0.0
  */
