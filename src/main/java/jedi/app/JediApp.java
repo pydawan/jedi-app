@@ -23,12 +23,11 @@ public class JediApp {
    private String description;
    private String date;
    private Class mainClass;
-   private Map classes = new HashMap<>();
+   private Map<String, Object> classes = new HashMap<>();
    private JarInputStream jar;
    
-   @SuppressWarnings("unchecked")
    public JediApp() {
-      this.classes.put("models", new ArrayList<>());
+      this.classes.put("models", new ArrayList<Class<?>>());
    }
    
    public String getName() {
@@ -115,7 +114,7 @@ public class JediApp {
       return this.classes;
    }
    
-   public void setClasses(Map classes) {
+   public void setClasses(Map<String, Object> classes) {
       this.classes = classes;
    }
    

@@ -21,7 +21,7 @@ import jedi.app.JediApp;
 public abstract class JediAppLoader {
    
    private static String dir;
-   private static Map apps = new HashMap<>();
+   private static Map apps = new HashMap();
    
    public static String getDir() {
       return dir;
@@ -92,7 +92,8 @@ public abstract class JediAppLoader {
                   if (
                      jarEntry1.getName().replace(File.separator, ".").startsWith(appName) && 
                      jarEntry1.getName().endsWith(".class") &&
-                     jarEntry1.getName().contains("models")) {
+                     (jarEntry1.getName().contains("model") || jarEntry1.getName().contains("models"))) {
+                     className = appName.replaceAll("\\.", "/") + "/model/";
                      className = appName.replaceAll("\\.", "/") + "/models/";
                      if (jarEntry1.getName().startsWith(className)) {
                         className = jarEntry1.getName().replaceAll("/", "\\.");
