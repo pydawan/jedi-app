@@ -16,6 +16,7 @@ jar {
            'Sealed': true
         )
     }
+    from sourceSets.main.allSource
 }
 
 repositories {

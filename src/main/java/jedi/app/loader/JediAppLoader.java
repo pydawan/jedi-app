@@ -82,6 +82,7 @@ public abstract class JediAppLoader {
                   app.setVersion(version);
                   app.setDescription(description);
                   app.setDate(date);
+                  app.setPackageName(clazz.getPackage().getName());
                }
                while (true) {
                   JarEntry jarEntry1 = jar.getNextJarEntry();
@@ -90,17 +91,14 @@ public abstract class JediAppLoader {
                      break;
                   }
                   if (
-                     jarEntry1.getName().replace(File.separator, ".").startsWith(appName) && 
+                     jarEntry1.getName().replace(File.separator, ".").startsWith(app.getPackageName()) && 
                      jarEntry1.getName().endsWith(".class") &&
                      (jarEntry1.getName().contains("model") || jarEntry1.getName().contains("models"))) {
-                     className = appName.replaceAll("\\.", "/") + "/model/";
-                     className = appName.replaceAll("\\.", "/") + "/models/";
-                     if (jarEntry1.getName().startsWith(className)) {
-                        className = jarEntry1.getName().replaceAll("/", "\\.");
-                        className = className.replace(".class", "");
-                        clazz = Class.forName(className);
-                        ((List) app.getClasses().get("models")).add(clazz);
-                     }
+                     appName = jarEntry1.getName();
+                     className = jarEntry1.getName().replaceAll(File.separator, "\\.");
+                     className = className.replace(".class", "");
+                     clazz = Class.forName(className);
+                     ((List) app.getClasses().get("models")).add(clazz);
                   }
                }
             } catch (FileNotFoundException e) {

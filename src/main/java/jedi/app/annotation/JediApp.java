@@ -22,4 +22,5 @@ public @interface JediApp {
    String version() default "";
    String description() default "";
    String date() default "";
+   String package_name() default "";
 }
