@@ -117,7 +117,6 @@ public abstract class JediAppLoader {
                      e.printStackTrace();
                   }
                }
-               
             }
          }
       }
