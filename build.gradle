@@ -20,11 +20,9 @@ jar {
 
 repositories {
    mavenLocal()
-   mavenCentral() 
-   jcenter()
+   mavenCentral()
 }
 
 dependencies {
-    compile 'org.projectlombok:lombok:1.16.8'
     testCompile 'junit:junit:4.12'
 }
