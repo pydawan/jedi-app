@@ -83,7 +83,6 @@ public abstract class JediAppLoader {
                   app.setDescription(description);
                   app.setDate(date);
                }
-               
                while (true) {
                   JarEntry jarEntry1 = jar.getNextJarEntry();
                   if (jarEntry1 == null) {
@@ -120,7 +119,6 @@ public abstract class JediAppLoader {
             }
          }
       }
-      
    }
    
    public static JediApp get(String appName) {
