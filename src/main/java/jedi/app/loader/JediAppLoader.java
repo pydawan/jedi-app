@@ -102,7 +102,9 @@ public abstract class JediAppLoader {
                      className = jarEntry1.getName().replaceAll(File.separator, "\\.");
                      className = className.replace(".class", "");
                      clazz = Class.forName(className);
-                     ((List) app.getClasses().get("models")).add(clazz);
+                     if (clazz.getSuperclass().getName().equals("jedi.db.models.Model")) {
+                        ((List) app.getClasses().get("models")).add(clazz);
+                     }
                   }
                }
             } catch (FileNotFoundException e) {
