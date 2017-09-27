@@ -92,9 +92,13 @@ public abstract class JediAppLoader {
                   }
                   if (
                      jarEntry1.getName().replace(File.separator, ".").startsWith(app.getPackageName()) && 
-                     jarEntry1.getName().endsWith(".class") &&
-                     (jarEntry1.getName().contains("model") || jarEntry1.getName().contains("models"))) {
-                     appName = jarEntry1.getName();
+                     jarEntry1.getName().endsWith(".class") && 
+                     (
+                           jarEntry1.getName().contains("model") || 
+                           jarEntry1.getName().contains("models") ||
+                           jarEntry1.getName().contains("modelo") || 
+                           jarEntry1.getName().contains("modelos"))
+                     ) {
                      className = jarEntry1.getName().replaceAll(File.separator, "\\.");
                      className = className.replace(".class", "");
                      clazz = Class.forName(className);
