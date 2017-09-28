@@ -5,7 +5,7 @@
 /build/resources
 /build/test-results
 /build/tmp
-/gradle
+/gradle/
 /.gradle/
 /.settings/
 /.classpath
