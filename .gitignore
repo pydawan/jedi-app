@@ -5,13 +5,14 @@
 /build/resources
 /build/test-results
 /build/tmp
+/gradle
 /.gradle/
 /.settings/
 /.classpath
 /.project
 *.class
 .mtj.tmp/
-*.jar
+#*.jar
 *.war
 *.ear
 hs_err_pid*
